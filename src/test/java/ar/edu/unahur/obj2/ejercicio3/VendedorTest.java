@@ -1,5 +1,8 @@
 package ar.edu.unahur.obj2.ejercicio3;
 
+import ar.edu.unahur.obj2.ejercicio3.comision_strategies.ComisionExperto;
+import ar.edu.unahur.obj2.ejercicio3.comision_strategies.ComisionPrincipiante;
+import ar.edu.unahur.obj2.ejercicio3.comision_strategies.ComisionSenior;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -14,9 +17,9 @@ public class VendedorTest {
 
     @BeforeMethod
     public void setUp() {
-        principiante = new Vendedor("PRINCIPIANTE");
-        senior = new Vendedor("SENIOR");
-        experto = new Vendedor("EXPERTO");
+        principiante = new Vendedor(new ComisionPrincipiante());
+        senior = new Vendedor(new ComisionSenior());
+        experto = new Vendedor(new ComisionExperto());
     }
 
     @Test

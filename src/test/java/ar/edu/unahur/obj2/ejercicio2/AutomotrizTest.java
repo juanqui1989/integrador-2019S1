@@ -18,12 +18,12 @@ public class AutomotrizTest {
     public void setUp() {
         MotorCarburador motorCarburador = new MotorCarburador();
         MotorInyeccion motorInyeccion = new MotorInyeccion();
-        MotorExperimental motorExperimental = new MotorExperimental();
+        MotorExperimentalAdapter motorExperimental = new MotorExperimentalAdapter(new MotorExperimental());
         motores = new ArrayList<Motor>();
         motores.add(motorCarburador);
         motores.add(motorInyeccion);
         automotriz = new Automotriz();
-        //motores.add(motorExperimental); NO compila,
+        motores.add(motorExperimental);
     }
 
     @Test

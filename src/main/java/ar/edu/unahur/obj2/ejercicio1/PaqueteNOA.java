@@ -1,8 +1,8 @@
 package ar.edu.unahur.obj2.ejercicio1;
 
-public class PaqueteNOA {
+public class PaqueteNOA implements Itinerable {
 
-    public void itinerario() {
+    private void itinerario() {
         print("Nombre: " + nombre());
         print("Transporte Ida:" + transporteIda());
         print("Dia 1: " + dia1());
@@ -38,5 +38,10 @@ public class PaqueteNOA {
 
     private void print(String texto) {
         System.out.println(texto);
+    }
+
+    @Override
+    public void imprimirItinerario() {
+        this.itinerario();
     }
 }

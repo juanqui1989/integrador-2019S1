@@ -1,26 +1,33 @@
 package ar.edu.unahur.obj2.ejercicio3;
 
+import ar.edu.unahur.obj2.ejercicio3.comision_strategies.Comision;
+
 public class Vendedor {
 
     private String tipoVendedor;
+    private Comision comision;
 
-    public Vendedor(String tipoVendedor) {
-        this.tipoVendedor = tipoVendedor;
+    public Vendedor(Comision comision) {
+        this.tipoVendedor = comision.getRango();
+        this.comision = comision;
     }
 
     public double comision(double montoVenta) {
-        double porcentajeComision;
 
-        if (tipoVendedor.equals("PRINCIPIANTE")) {
-            porcentajeComision=0.10;
-        } else if (tipoVendedor.equals("SENIOR")) {
-            porcentajeComision=0.20;
-        } else if (tipoVendedor.equals("EXPERTO")) {
-            porcentajeComision=0.40;
-        } else {
-            throw new RuntimeException("Tipo de vendedor inexistente");
-        }
+        return montoVenta * comision.getComision();
+    }
 
-        return montoVenta*porcentajeComision;
+    public String getTipoVendedor() {
+        return tipoVendedor;
+    }
+
+
+    public Comision getComision() {
+        return comision;
+    }
+
+    public void setComision(Comision comision) {
+        this.comision = comision;
+        this.tipoVendedor = comision.getRango();
     }
 }

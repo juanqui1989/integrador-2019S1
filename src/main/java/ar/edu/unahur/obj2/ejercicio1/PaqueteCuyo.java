@@ -1,6 +1,6 @@
 package ar.edu.unahur.obj2.ejercicio1;
 
-public class PaqueteCuyo {
+public class PaqueteCuyo implements Itinerable{
 
 
     public String getNombre() {
